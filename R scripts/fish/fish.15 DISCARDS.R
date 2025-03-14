@@ -270,13 +270,6 @@ porpoise<-porpoise_abundance*57.5 /#mean mass
   area_size
 
 
-area_size_5 <- read_sf(dsn="./Data/IMR/Fdir_hovedomraader_shp") %>% #get the fiskeridir areas
-  filter(havomr=="05")%>%
-  sf::st_union() %>% 
-  sf::st_area() %>% 
-  as.numeric()
-
-
 Bycatch["Longlines_and_Gillnets","Cetacean"]<-porpoise
 
 #----------------------------------------------

@@ -18,8 +18,11 @@ unlink(stringr::str_glue("./StrathE2E/{implementation}/2010-2019/Param/event_tim
 # 
  unlink(stringr::str_glue("./StrathE2E/{implementation}/2010-2019/Target/annual_observed_NORWEGIAN_BASIN_2010-2019.csv"))
  unlink(stringr::str_glue("./StrathE2E/{implementation}/2010-2019/Target/monthly_observed_NORWEGIAN_BASIN_2010-2019.csv"))
+ unlink(stringr::str_glue("./StrathE2E/{implementation}/2010-2019/Target/annual_observed_NORWEGIAN_BASIN_2010-2019_old.csv"))
+ unlink(stringr::str_glue("./StrathE2E/{implementation}/2010-2019/Target/monthly_observed_NORWEGIAN_BASIN_2010-2019_old.csv"))
  unlink(stringr::str_glue("./StrathE2E/{implementation}/2010-2019/Target/annual_observed_NORWEGIAN_BASIN_2010-2019-new.csv"))
  unlink(stringr::str_glue("./StrathE2E/{implementation}/2010-2019/Target/monthly_observed_NORWEGIAN_BASIN_2010-2019-new.csv"))
+ unlink(stringr::str_glue("./StrathE2E/{implementation}/2010-2019/Target/region_harvest_r_NOW_SEA_2010-2019.csv"))
  
  
 # Update file which tells StrathE2E where to find driving files
@@ -41,7 +44,8 @@ Setup_file[17,1] <- stringr::str_glue("fishing_gear_multiplier_{toupper(implemen
 # 
  Setup_file[23,1] <- stringr::str_glue("annual_observed_{toupper(implementation)}_2010-2019.csv")
  Setup_file[24,1] <- stringr::str_glue("monthly_observed_{toupper(implementation)}_2010-2019.csv")
-
+ Setup_file[25,1] <- stringr::str_glue("region_harvest_r_{toupper(implementation)}_2010-2019.csv")
+ 
 write.csv(Setup_file,
           file = stringr::str_glue("./StrathE2E/{implementation}/2010-2019/MODEL_SETUP.csv"),
           row.names = F)

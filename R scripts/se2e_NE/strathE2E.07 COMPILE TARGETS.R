@@ -6,7 +6,7 @@ source("./R scripts/@_Region file.R")
 
 #### Annual target data ####
 
-annual_template <- read.csv(stringr::str_glue("./StrathE2E/{implementation}/2010-2019/Target/annual_observed_NORWEGIAN_BASIN_2010-2019-new.csv"))  # Read in example boundary drivers
+annual_template <- read.csv(stringr::str_glue("./StrathE2E/{implementation}/2010-2019/Target/annual_observed_NORWEGIAN_BASIN_2010-2019.csv"))  # Read in example boundary drivers
 
 targets <- read.csv(stringr::str_glue("./Objects/fitting/PP_target_{implementation}.csv"))
 

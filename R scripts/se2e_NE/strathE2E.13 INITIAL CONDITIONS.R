@@ -5,7 +5,7 @@ library(StrathE2E2)
 library(MiMeMo.tools)
 source("./R scripts/@_Region file.R")
 
-runs <- expand.grid(Force = c("GFDL", "CNRM"), S = c("ssp370", "ssp126"), Years = 3)
+runs <- expand.grid(Force = c("GFDL", "CNRM"), S = c("ssp370", "ssp126"), Years = 300)
 
 pmap(runs, safely(function(Force, S, Years){
   

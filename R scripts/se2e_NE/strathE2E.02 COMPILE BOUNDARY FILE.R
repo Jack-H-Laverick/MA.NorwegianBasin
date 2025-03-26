@@ -20,13 +20,13 @@ Boundary_template <- read.csv(stringr::str_glue("./StrathE2E/{implementation}/20
 #   pivot_wider(names_from = c(Compartment, Variable), names_sep = "_", values_from = Measured) %>%   # Spread columns to match template
 #   mutate(SO_phyt = SO_Diatoms + SO_Other_phytoplankton,
 #          SI_phyt = SI_Diatoms + SI_Other_phytoplankton,
-#          D_phyt = D_Diatoms + D_Other_phytoplankton) %>% 
+#          D_phyt = D_Diatoms + D_Other_phytoplankton) %>%
 #   saveRDS("./Objects/Boundary measurements.rds")
 
 ## Iterate over different time periods ##
 
-decades <- data.frame(Start = seq(2010, 2060, by = 10),                         # Which time periods are we buiding driving data for?
-                      Stop = seq(2019, 2069, by = 10)) %>% 
+decades <- data.frame(Start = c(2010, seq(2010, 2060, by = 10)),                         # Which time periods are we buiding driving data for?
+                      Stop = c(2015, seq(2019, 2069, by = 10))) %>% 
   rowid_to_column()
 
 runs <- expand.grid(Force = c("GFDL", "CNRM"), S = c("ssp370", "ssp126"),   # Get a combination of forcings and SSPs

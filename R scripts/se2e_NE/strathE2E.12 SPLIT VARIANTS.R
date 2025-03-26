@@ -8,8 +8,8 @@ source("./R scripts/@_Region file.R")
 
 #### Copy first variant ####
 
-decades <- data.frame(Start = seq(2010, 2060, by = 10),                         # Which time periods are we buiding driving data for?
-                      Stop = seq(2019, 2069, by = 10)) %>% 
+decades <- data.frame(Start = c(2010, seq(2010, 2060, by = 10)),                         # Which time periods are we buiding driving data for?
+                      Stop = c(2015, seq(2019, 2069, by = 10))) %>% 
   rowid_to_column()
 
 runs <- expand.grid(Force = c("GFDL", "CNRM"), S = c("ssp370", "ssp126"),   # Get a combination of forcings and SSPs

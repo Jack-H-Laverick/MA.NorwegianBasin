@@ -276,9 +276,17 @@ area_size_5 <- read_sf(dsn="./Data/IMR/Fdir_hovedomraader_shp") %>% #get the fis
   sf::st_area() %>% 
   as.numeric()
 
-
 Bycatch["Longlines_and_Gillnets","Cetacean"]<-porpoise
+#There are some landings of cetaceans in landings for other gears
 
+International_landings<-readRDS("Objects/International landings.rds")
+
+Bycatch["Pelagic_Seiners","Cetacean"]<-International_landings["Pelagic_Seiners_NORW","Cetacean"]
+Bycatch["Shelf_Trawlers_Seiners","Cetacean"]<-International_landings["Shelf_Trawlers_Seiners","Cetacean"]
+
+International_landings["Pelagic_Seiners_NORW","Cetacean"]<-0
+International_landings["Shelf_Trawlers_Seiners","Cetacean"]<-0
+saveRDS(International_landings,"Objects/International landings.rds")
 #----------------------------------------------
 #Gillnets pinnipeds (Moan 2021)
 

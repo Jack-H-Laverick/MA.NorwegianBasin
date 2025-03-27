@@ -37,6 +37,15 @@ ICES <-read.csv("./Data/ICES_fish/ICES_1903-2017.csv", header=T) %>%        # Im
        mutate(Inflation = total_guild_tonnage/tonnage) %>%                  # How do we get from non-Russian landings per guild to our known total?
        dplyr::select(Guild, Inflation)
 
+test<-ICES%>%
+  filter(str_detect(area, "27.2.a.1|27.2.a.2")) %>%
+  filter(year>=2010&year<2019) %>%
+  left_join(guild)%>%
+  group_by(Guild,tonnage,year)%>%
+  summarise(tonnage = sum(tonnage, na.rm = T)) %>%
+  ungroup()%>%
+  group_by(Guild)%>%
+  summarise(tonnage = mean(tonnage, na.rm = T))
 
 saveRDS(ICES, "./Objects/ICES landings inflation.rds")
 
